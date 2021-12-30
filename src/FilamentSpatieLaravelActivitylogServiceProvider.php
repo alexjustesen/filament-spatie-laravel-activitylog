@@ -2,9 +2,9 @@
 
 namespace RyanChandler\FilamentSpatieLaravelActivitylog;
 
+use RyanChandler\FilamentSpatieLaravelActivitylog\Commands\FilamentSpatieLaravelActivitylogCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use RyanChandler\FilamentSpatieLaravelActivitylog\Commands\FilamentSpatieLaravelActivitylogCommand;
 
 class FilamentSpatieLaravelActivitylogServiceProvider extends PackageServiceProvider
 {
