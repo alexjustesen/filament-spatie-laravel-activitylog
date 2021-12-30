@@ -2,14 +2,17 @@
 
 namespace RyanChandler\FilamentSpatieLaravelActivitylog;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Filament\PluginServiceProvider;
+use RyanChandler\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
 
-class FilamentSpatieLaravelActivitylogServiceProvider extends PackageServiceProvider
+class FilamentSpatieLaravelActivitylogServiceProvider extends PluginServiceProvider
 {
-    public function configurePackage(Package $package): void
+    public static string $name = 'spatie-activitylog';
+
+    protected function getResources(): array
     {
-        $package
-            ->name('filament-spatie-laravel-activitylog');
+        return [
+            ActivityResource::class,
+        ];
     }
 }
