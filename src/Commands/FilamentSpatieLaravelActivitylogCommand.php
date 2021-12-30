@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace RyanChandler\FilamentSpatieLaravelActivitylog\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FilamentSpatieLaravelActivitylogCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'filament-spatie-laravel-activitylog';
 
     public $description = 'My command';
 
