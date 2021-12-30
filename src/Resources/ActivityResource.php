@@ -82,6 +82,16 @@ class ActivityResource extends Resource
             ->defaultSort('created_at', 'DESC');
     }
 
+    protected static function getNavigationGroup(): ?string
+    {
+        return config('filament-spatie-laravel-activitylog.resource.group') ?? parent::getNavigationGroup();
+    }
+
+    protected static function getNavigationSort(): ?int
+    {
+        return config('filament-spatie-laravel-activitylog.resource.sort') ?? parent::getNavigationSort();
+    }
+
     public static function getRelations(): array
     {
         return [
