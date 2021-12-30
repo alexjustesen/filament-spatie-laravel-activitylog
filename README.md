@@ -5,15 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/ryangjchandler/filament-spatie-laravel-activitylog/Check%20&%20fix%20styling?label=code%20style)](https://github.com/ryangjchandler/filament-spatie-laravel-activitylog/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/ryangjchandler/filament-spatie-laravel-activitylog.svg?style=flat-square)](https://packagist.org/packages/ryangjchandler/filament-spatie-laravel-activitylog)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/filament-spatie-laravel-activitylog.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/filament-spatie-laravel-activitylog)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+This package provides a Filament resource that shows you all of the activity logs created using the `spatie/laravel-activitylog` package. It also provides a relationship manager for related models.
 
 ## Installation
 
@@ -23,38 +15,40 @@ You can install the package via composer:
 composer require ryangjchandler/filament-spatie-laravel-activitylog
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="filament-spatie-laravel-activitylog-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="filament-spatie-laravel-activitylog-config"
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="filament-spatie-laravel-activitylog-views"
+php artisan vendor:publish --tag="filament-spatie-activitylog-config"
 ```
 
 This is the contents of the published config file:
 
 ```php
 return [
+
+    'resource' => [
+        'group' => null,
+        'sort' => null,
+    ],
+
 ];
 ```
 
 ## Usage
 
-```php
-$filament-spatie-laravel-activitylog = new RyanChandler\FilamentSpatieLaravelActivitylog();
-echo $filament-spatie-laravel-activitylog->echoPhrase('Hello, RyanChandler!');
-```
+This package will automatically register the `ActivityResource`. You'll be able to see it when you visit your Filament admin panel.
+
+## Customising the group
+
+You can customise the navigation group for the `ActivityResource` by publishing the configuration file and updating the `resource.group` value.
+
+## Customising the sorting
+
+You can customise the navigation group for the `ActivityResource` by publishing the configuration file and updating the `resource.sort` value.
+
+## Relationship manager
+
+If you have a model that uses the `Spatie\Activitylog\Traits\LogsActivity` trait, you can add the `RyanChandler\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager` relationship manager to your Filament resource to display all of the activity logs that are performed on your model.
 
 ## Testing
 

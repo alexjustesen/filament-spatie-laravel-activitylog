@@ -10,7 +10,7 @@ use RyanChandler\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRel
 
 class FilamentSpatieLaravelActivitylogServiceProvider extends PluginServiceProvider
 {
-    public static string $name = 'spatie-activitylog';
+    public static string $name = 'filament-spatie-activitylog';
 
     public function configurePackage(Package $package): void
     {
