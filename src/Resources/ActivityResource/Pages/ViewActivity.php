@@ -2,8 +2,8 @@
 
 namespace RyanChandler\FilamentSpatieLaravelActivitylog\Resources\ActivityResource\Pages;
 
-use RyanChandler\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
 use Filament\Resources\Pages\ViewRecord;
+use RyanChandler\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
 
 class ViewActivity extends ViewRecord
 {
