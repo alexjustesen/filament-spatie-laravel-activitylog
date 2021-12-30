@@ -7,6 +7,7 @@ use Filament\Resources\RelationManagers\HasManyRelationManager;
 use Filament\Resources\Table;
 use Illuminate\Database\Eloquent\Model;
 use RyanChandler\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
+use Filament\Tables;
 
 class ActivitiesRelationManager extends HasManyRelationManager
 {
@@ -24,7 +25,12 @@ class ActivitiesRelationManager extends HasManyRelationManager
 
     public static function table(Table $table): Table
     {
-        return ActivityResource::table($table);
+        return ActivityResource::table($table)
+            ->bulkActions([])
+            ->pushActions([
+                Tables\Actions\LinkAction::make('View')
+                    ->url(fn ($record) => ActivityResource::getUrl('view', ['record' => $record]), shouldOpenInNewTab: true),
+            ]);
     }
 
     protected function canCreate(): bool
@@ -33,6 +39,11 @@ class ActivitiesRelationManager extends HasManyRelationManager
     }
 
     protected function canEdit(Model $record): bool
+    {
+        return false;
+    }
+
+    protected function canDelete(Model $record): bool
     {
         return false;
     }

@@ -76,6 +76,7 @@ class ActivityResource extends Resource
                 Tables\Filters\Filter::make('Has Subject')
                     ->query(fn (Builder $query) => $query->has('subject')),
             ])
+            ->bulkActions([])
             ->defaultSort('created_at', 'DESC');
     }
 
