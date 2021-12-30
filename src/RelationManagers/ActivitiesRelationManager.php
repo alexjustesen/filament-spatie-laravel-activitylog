@@ -5,9 +5,9 @@ namespace RyanChandler\FilamentSpatieLaravelActivitylog\RelationManagers;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\HasManyRelationManager;
 use Filament\Resources\Table;
+use Filament\Tables;
 use Illuminate\Database\Eloquent\Model;
 use RyanChandler\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
-use Filament\Tables;
 
 class ActivitiesRelationManager extends HasManyRelationManager
 {
