@@ -22,6 +22,8 @@ class ActivityResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-table';
 
+    protected static ?string $pluralLabel = 'Activity';
+
     public static function form(Form $form): Form
     {
         return $form
