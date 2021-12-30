@@ -2,17 +2,15 @@
 
 namespace RyanChandler\FilamentSpatieLaravelActivitylog\Resources;
 
-use RyanChandler\FilamentSpatieLaravelActivitylog\Resources\ActivityResource\Pages;
-use Spatie\Activitylog\Models\Activity;
-use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Filament\Tables\TablesServiceProvider;
 use Illuminate\Database\Eloquent\Builder;
 use RyanChandler\FilamentSpatieLaravelActivitylog\Contracts\IsActivitySubject;
 use RyanChandler\FilamentSpatieLaravelActivitylog\ResourceFinder;
+use RyanChandler\FilamentSpatieLaravelActivitylog\Resources\ActivityResource\Pages;
+use Spatie\Activitylog\Models\Activity;
 
 class ActivityResource extends Resource
 {
