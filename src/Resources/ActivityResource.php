@@ -27,7 +27,8 @@ class ActivityResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\Textarea::make('description'),
+                Forms\Components\KeyValue::make('properties'),
             ]);
     }
 
@@ -90,6 +91,7 @@ class ActivityResource extends Resource
     {
         return [
             'index' => Pages\ListActivities::route('/'),
+            'view' => Pages\ViewActivity::route('/{record}'),
         ];
     }
 }
