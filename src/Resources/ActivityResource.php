@@ -29,7 +29,8 @@ class ActivityResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Textarea::make('description'),
-                Forms\Components\KeyValue::make('properties'),
+                Forms\Components\KeyValue::make('properties.attributes'),
+                Forms\Components\KeyValue::make('properties.old'),
             ]);
     }
 
