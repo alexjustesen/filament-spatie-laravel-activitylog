@@ -2,12 +2,12 @@
 
 namespace AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers;
 
+use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\HasManyRelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Model;
-use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
 
 class ActivitiesRelationManager extends HasManyRelationManager
 {
