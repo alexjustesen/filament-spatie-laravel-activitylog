@@ -2,9 +2,9 @@
 
 namespace AlexJustesen\FilamentSpatieLaravelActivitylog\Tests;
 
+use AlexJustesen\FilamentSpatieLaravelActivitylog\FilamentSpatieLaravelActivitylogServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use AlexJustesen\FilamentSpatieLaravelActivitylog\FilamentSpatieLaravelActivitylogServiceProvider;
 
 class TestCase extends Orchestra
 {

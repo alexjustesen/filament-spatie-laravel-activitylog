@@ -2,8 +2,8 @@
 
 namespace AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource\Pages;
 
-use Filament\Resources\Pages\ListRecords;
 use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
+use Filament\Resources\Pages\ListRecords;
 
 class ListActivities extends ListRecords
 {

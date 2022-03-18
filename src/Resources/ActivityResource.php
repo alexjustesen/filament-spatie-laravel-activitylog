@@ -2,6 +2,10 @@
 
 namespace AlexJustesen\FilamentSpatieLaravelActivitylog\Resources;
 
+use AlexJustesen\FilamentSpatieLaravelActivitylog\Contracts\IsActivitySubject;
+use AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager;
+use AlexJustesen\FilamentSpatieLaravelActivitylog\ResourceFinder;
+use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource\Pages;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -10,10 +14,6 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\HtmlString;
 use Livewire\Component;
-use AlexJustesen\FilamentSpatieLaravelActivitylog\Contracts\IsActivitySubject;
-use AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager;
-use AlexJustesen\FilamentSpatieLaravelActivitylog\ResourceFinder;
-use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource\Pages;
 use Spatie\Activitylog\Models\Activity;
 
 class ActivityResource extends Resource

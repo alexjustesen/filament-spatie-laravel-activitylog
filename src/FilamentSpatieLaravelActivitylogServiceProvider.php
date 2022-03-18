@@ -2,10 +2,10 @@
 
 namespace AlexJustesen\FilamentSpatieLaravelActivitylog;
 
-use Filament\PluginServiceProvider;
-use Livewire\Livewire;
 use AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager;
 use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
+use Filament\PluginServiceProvider;
+use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 
 class FilamentSpatieLaravelActivitylogServiceProvider extends PluginServiceProvider
