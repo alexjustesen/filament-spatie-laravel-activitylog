@@ -19,7 +19,6 @@
         "php": "^8.0",
         "filament/filament": "^2.7",
         "illuminate/contracts": "^8.73",
-        "livewire/livewire": "^2.8",
         "spatie/laravel-activitylog": "^4.3",
         "spatie/laravel-package-tools": "^1.9.2"
     },
