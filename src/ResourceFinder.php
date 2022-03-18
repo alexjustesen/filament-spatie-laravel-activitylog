@@ -1,6 +1,6 @@
 <?php
 
-namespace RyanChandler\FilamentSpatieLaravelActivitylog;
+namespace AlexJustesen\FilamentSpatieLaravelActivitylog;
 
 use Filament\Facades\Filament;
 

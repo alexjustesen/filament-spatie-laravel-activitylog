@@ -1,17 +1,17 @@
 {
-    "name": "ryangjchandler/filament-spatie-laravel-activitylog",
+    "name": "alexjustesen/filament-spatie-laravel-activitylog",
     "description": "View your activity logs inside of Filament.",
     "keywords": [
-        "ryangjchandler",
+        "alexjustesen",
         "laravel",
         "filament-spatie-laravel-activitylog"
     ],
-    "homepage": "https://github.com/ryangjchandler/filament-spatie-laravel-activitylog",
+    "homepage": "https://github.com/alexjustesen/filament-spatie-laravel-activitylog",
     "license": "MIT",
     "authors": [
         {
-            "name": "Ryan Chandler",
-            "email": "support@ryangjchandler.co.uk",
+            "name": "Alex Justesen",
+            "email": "support@alexjustesen.com",
             "role": "Developer"
         }
     ],
@@ -36,13 +36,13 @@
     },
     "autoload": {
         "psr-4": {
-            "RyanChandler\\FilamentSpatieLaravelActivitylog\\": "src",
-            "RyanChandler\\FilamentSpatieLaravelActivitylog\\Database\\Factories\\": "database/factories"
+            "AlexJustesen\\FilamentSpatieLaravelActivitylog\\": "src",
+            "AlexJustesen\\FilamentSpatieLaravelActivitylog\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RyanChandler\\FilamentSpatieLaravelActivitylog\\Tests\\": "tests"
+            "AlexJustesen\\FilamentSpatieLaravelActivitylog\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -56,10 +56,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RyanChandler\\FilamentSpatieLaravelActivitylog\\FilamentSpatieLaravelActivitylogServiceProvider"
+                "AlexJustesen\\FilamentSpatieLaravelActivitylog\\FilamentSpatieLaravelActivitylogServiceProvider"
             ],
             "aliases": {
-                "FilamentSpatieLaravelActivitylog": "RyanChandler\\FilamentSpatieLaravelActivitylog\\Facades\\FilamentSpatieLaravelActivitylog"
+                "FilamentSpatieLaravelActivitylog": "AlexJustesen\\FilamentSpatieLaravelActivitylog\\Facades\\FilamentSpatieLaravelActivitylog"
             }
         }
     },

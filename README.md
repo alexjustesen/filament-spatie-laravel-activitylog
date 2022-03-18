@@ -1,9 +1,9 @@
 # View your activity logs inside of Filament.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/ryangjchandler/filament-spatie-laravel-activitylog.svg?style=flat-square)](https://packagist.org/packages/ryangjchandler/filament-spatie-laravel-activitylog)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/ryangjchandler/filament-spatie-laravel-activitylog/run-tests?label=tests)](https://github.com/ryangjchandler/filament-spatie-laravel-activitylog/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/ryangjchandler/filament-spatie-laravel-activitylog/Check%20&%20fix%20styling?label=code%20style)](https://github.com/ryangjchandler/filament-spatie-laravel-activitylog/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/ryangjchandler/filament-spatie-laravel-activitylog.svg?style=flat-square)](https://packagist.org/packages/ryangjchandler/filament-spatie-laravel-activitylog)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/alexjustesen/filament-spatie-laravel-activitylog.svg?style=flat-square)](https://packagist.org/packages/alexjustesen/filament-spatie-laravel-activitylog)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/alexjustesen/filament-spatie-laravel-activitylog/run-tests?label=tests)](https://github.com/alexjustesen/filament-spatie-laravel-activitylog/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/alexjustesen/filament-spatie-laravel-activitylog/Check%20&%20fix%20styling?label=code%20style)](https://github.com/alexjustesen/filament-spatie-laravel-activitylog/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/alexjustesen/filament-spatie-laravel-activitylog.svg?style=flat-square)](https://packagist.org/packages/alexjustesen/filament-spatie-laravel-activitylog)
 
 This package provides a Filament resource that shows you all of the activity logs created using the `spatie/laravel-activitylog` package. It also provides a relationship manager for related models.
 
@@ -12,7 +12,7 @@ This package provides a Filament resource that shows you all of the activity log
 You can install the package via composer:
 
 ```bash
-composer require ryangjchandler/filament-spatie-laravel-activitylog
+composer require alexjustesen/filament-spatie-laravel-activitylog
 ```
 
 You can publish the config file with:
@@ -48,7 +48,7 @@ You can customise the navigation group for the `ActivityResource` by publishing 
 
 ## Relationship manager
 
-If you have a model that uses the `Spatie\Activitylog\Traits\LogsActivity` trait, you can add the `RyanChandler\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager` relationship manager to your Filament resource to display all of the activity logs that are performed on your model.
+If you have a model that uses the `Spatie\Activitylog\Traits\LogsActivity` trait, you can add the `AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager` relationship manager to your Filament resource to display all of the activity logs that are performed on your model.
 
 ## Testing
 
@@ -58,7 +58,7 @@ composer test
 
 ## Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Please see [RELEASES](https://github.com/alexjustesen/filament-spatie-laravel-activitylog/releases) for more information on what has changed recently.
 
 ## Contributing
 
@@ -70,7 +70,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Ryan Chandler](https://github.com/ryangjchandler)
+- [Alex Justesen](https://github.com/alexjustesen)
+- [Ryan Chandler](https://github.com/ryangjchandler) (Original creator)
 - [All Contributors](../../contributors)
 
 ## License
