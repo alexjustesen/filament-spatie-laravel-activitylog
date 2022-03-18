@@ -1,11 +1,11 @@
 <?php
 
-namespace RyanChandler\FilamentSpatieLaravelActivitylog;
+namespace AlexJustesen\FilamentSpatieLaravelActivitylog;
 
 use Filament\PluginServiceProvider;
 use Livewire\Livewire;
-use RyanChandler\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager;
-use RyanChandler\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
+use AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager;
+use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
 use Spatie\LaravelPackageTools\Package;
 
 class FilamentSpatieLaravelActivitylogServiceProvider extends PluginServiceProvider

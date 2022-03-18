@@ -1,10 +1,10 @@
 <?php
 
-namespace RyanChandler\FilamentSpatieLaravelActivitylog\Tests;
+namespace AlexJustesen\FilamentSpatieLaravelActivitylog\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use RyanChandler\FilamentSpatieLaravelActivitylog\FilamentSpatieLaravelActivitylogServiceProvider;
+use AlexJustesen\FilamentSpatieLaravelActivitylog\FilamentSpatieLaravelActivitylogServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,7 +13,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'RyanChandler\\FilamentSpatieLaravelActivitylog\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'AlexJustesen\\FilamentSpatieLaravelActivitylog\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 

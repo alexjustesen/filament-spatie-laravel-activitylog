@@ -1,6 +1,6 @@
 <?php
 
-namespace RyanChandler\FilamentSpatieLaravelActivitylog\Contracts;
+namespace AlexJustesen\FilamentSpatieLaravelActivitylog\Contracts;
 
 use Spatie\Activitylog\Models\Activity;
 

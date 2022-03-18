@@ -1,6 +1,6 @@
 <?php
 
-namespace RyanChandler\FilamentSpatieLaravelActivitylog\Resources;
+namespace AlexJustesen\FilamentSpatieLaravelActivitylog\Resources;
 
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -10,10 +10,10 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\HtmlString;
 use Livewire\Component;
-use RyanChandler\FilamentSpatieLaravelActivitylog\Contracts\IsActivitySubject;
-use RyanChandler\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager;
-use RyanChandler\FilamentSpatieLaravelActivitylog\ResourceFinder;
-use RyanChandler\FilamentSpatieLaravelActivitylog\Resources\ActivityResource\Pages;
+use AlexJustesen\FilamentSpatieLaravelActivitylog\Contracts\IsActivitySubject;
+use AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager;
+use AlexJustesen\FilamentSpatieLaravelActivitylog\ResourceFinder;
+use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource\Pages;
 use Spatie\Activitylog\Models\Activity;
 
 class ActivityResource extends Resource
@@ -55,7 +55,7 @@ class ActivityResource extends Resource
                             return new HtmlString('&mdash;');
                         }
 
-                        /** @var \RyanChandler\FilamentSpatieLaravelActivitylog\Contracts\IsActivitySubject */
+                        /** @var \AlexJustesen\FilamentSpatieLaravelActivitylog\Contracts\IsActivitySubject */
                         $subject = $record->subject;
 
                         return $subject->getActivitySubjectDescription($record);

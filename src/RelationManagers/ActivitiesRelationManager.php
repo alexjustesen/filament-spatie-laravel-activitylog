@@ -1,13 +1,13 @@
 <?php
 
-namespace RyanChandler\FilamentSpatieLaravelActivitylog\RelationManagers;
+namespace AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers;
 
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\HasManyRelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Model;
-use RyanChandler\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
+use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
 
 class ActivitiesRelationManager extends HasManyRelationManager
 {
