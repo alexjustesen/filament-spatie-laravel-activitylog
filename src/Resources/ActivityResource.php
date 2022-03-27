@@ -32,7 +32,7 @@ class ActivityResource extends Resource
                 Forms\Components\TextInput::make('causer_id'),
                 Forms\Components\TextInput::make('subject_type'),
                 Forms\Components\TextInput::make('subject_id'),
-                Forms\Components\TextInput::make('description'),
+                Forms\Components\TextInput::make('description')->columnSpan(2),
                 Forms\Components\KeyValue::make('properties.attributes'),
                 Forms\Components\KeyValue::make('properties.old'),
             ]);
