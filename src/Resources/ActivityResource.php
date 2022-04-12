@@ -29,9 +29,9 @@ class ActivityResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('causer_type'),
-                Forms\Components\TextInput::make('causer_id'),
+                Forms\Components\TextInput::make('causer_id')->label('Causer ID'),
                 Forms\Components\TextInput::make('subject_type'),
-                Forms\Components\TextInput::make('subject_id'),
+                Forms\Components\TextInput::make('subject_id')->label('Subject ID'),
                 Forms\Components\TextInput::make('description')->columnSpan(2),
                 Forms\Components\KeyValue::make('properties.attributes'),
                 Forms\Components\KeyValue::make('properties.old'),
@@ -75,7 +75,7 @@ class ActivityResource extends Resource
                         return $resource::getUrl('edit', ['record' => $record->subject]) ?? null;
                     }, shouldOpenInNewTab: true),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label('Log Date & Time')
+                    ->label('Logged at')
                     ->dateTime()
                     ->sortable(),
             ])
