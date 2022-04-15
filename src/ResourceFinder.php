@@ -17,5 +17,7 @@ final class ResourceFinder
                 return $resource;
             }
         }
+
+        return null;
     }
 }
