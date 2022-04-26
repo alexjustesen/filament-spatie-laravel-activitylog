@@ -22,19 +22,27 @@ class ActivityResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-table';
 
-    protected static ?string $pluralLabel = 'Activity';
+    public static function getLabel(): string
+    {
+        return __('filament-spatie-activitylog::activity.label');
+    }
 
+    public static function getPluralLabel(): string
+    {
+        return __('filament-spatie-activitylog::activity.plural_label');
+    }
+    
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('causer_type')->label(__('causer_type')),
-                Forms\Components\TextInput::make('causer_id')->label('Causer ID'),
-                Forms\Components\TextInput::make('subject_type'),
-                Forms\Components\TextInput::make('subject_id')->label('Subject ID'),
-                Forms\Components\TextInput::make('description')->columnSpan(2),
-                Forms\Components\KeyValue::make('properties.attributes'),
-                Forms\Components\KeyValue::make('properties.old'),
+                Forms\Components\TextInput::make('causer_type')->label(__('filament-spatie-activitylog::activity.causer_type')),
+                Forms\Components\TextInput::make('causer_id')->label(__('filament-spatie-activitylog::activity.causer_id')),
+                Forms\Components\TextInput::make('subject_type')->label(__('filament-spatie-activitylog::activity.subject_type')),
+                Forms\Components\TextInput::make('subject_id')->label(__('filament-spatie-activitylog::activity.subject_id')),
+                Forms\Components\TextInput::make('description')->label(__('filament-spatie-activitylog::activity.description'))->columnSpan(2),
+                Forms\Components\KeyValue::make('properties.attributes')->label(__('filament-spatie-activitylog::activity.attributes')),
+                Forms\Components\KeyValue::make('properties.old')->label(__('filament-spatie-activitylog::activity.old')),
             ]);
     }
 
@@ -46,9 +54,10 @@ class ActivityResource extends Resource
                     ->label('ID')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('description')
+                    ->label(__('filament-spatie-activitylog::activity.description'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('subject.name')
-                    ->label('Subject')
+                    ->label(__('filament-spatie-activitylog::activity.subject'))
                     ->hidden(fn (Component $livewire) => $livewire instanceof ActivitiesRelationManager)
                     ->getStateUsing(function (Activity $record) {
                         if (! $record->subject || ! $record->subject instanceof IsActivitySubject) {
@@ -75,12 +84,12 @@ class ActivityResource extends Resource
                         return $resource::getUrl('edit', ['record' => $record->subject]) ?? null;
                     }, shouldOpenInNewTab: true),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label('Logged at')
+                    ->label(__('filament-spatie-activitylog::activity.logged_at'))
                     ->dateTime()
                     ->sortable(),
             ])
             ->filters([
-                Tables\Filters\Filter::make('Has Subject')
+                Tables\Filters\Filter::make('has_subject') ->label(__('filament-spatie-activitylog::activity.has_subject'))
                     ->query(fn (Builder $query) => $query->has('subject')),
             ])
             ->bulkActions([])
