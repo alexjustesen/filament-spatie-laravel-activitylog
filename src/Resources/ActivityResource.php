@@ -28,7 +28,7 @@ class ActivityResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('causer_type'),
+                Forms\Components\TextInput::make('causer_type')->label(__('causer_type')),
                 Forms\Components\TextInput::make('causer_id')->label('Causer ID'),
                 Forms\Components\TextInput::make('subject_type'),
                 Forms\Components\TextInput::make('subject_id')->label('Subject ID'),
