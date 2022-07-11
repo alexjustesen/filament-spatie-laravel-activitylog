@@ -3,7 +3,7 @@
 return [
 
     'resource' => [
-        'filament-resource' => \AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource::class,
+        'filament-resource' => AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource::class,
         'group' => null,
         'sort'  => null,
     ],
