@@ -27,6 +27,7 @@ This is the contents of the published config file:
 return [
 
     'resource' => [
+        'filament-resource' => AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource::class,
         'group' => null,
         'sort' => null,
     ],
@@ -36,7 +37,11 @@ return [
 
 ## Usage
 
-This package will automatically register the `ActivityResource`. You'll be able to see it when you visit your Filament admin panel.
+This package will automatically register the `ActivityResource` class specified in the configuration `resource.filament-resource`. You'll be able to see it when you visit your Filament admin panel.
+
+## Customising the ActivityResource
+
+You can swap out the `ActivityResource` used by publishing the configuration file and updating the `resource.filament-resource` value. Use this to create your own `ActivityResource` class and extend the original at `AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource::class`. This will allow you to customise everything such as the views, table, form and permissions.
 
 ## Customising the group
 
