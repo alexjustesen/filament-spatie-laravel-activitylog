@@ -41,7 +41,7 @@ This package will automatically register the `ActivityResource` class specified 
 
 ## Customising the ActivityResource
 
-You can swap out the `ActivityResource` used by publishing the configuration file and updating the `resource.filament-resource` value. Use this to create your own `ActivityResource` class and extend the original at `AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource::class`. This will allow you to customise everything such as the views, table, form and permissions.
+You can swap out the `ActivityResource` used by publishing the configuration file and updating the `resource.filament-resource` value. Use this to create your own `ActivityResource` class and extend the original at `AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource::class`. This will allow you to customise everything such as the views, table, form and permissions. If you wish to change the resource on List and View page be sure to replace the `getPages` method on the new resource and create your own version of the `ListPage` and `ViewPage` classes to reference the custom `ActivityResource`.
 
 ## Customising the group
 
