@@ -8,9 +8,9 @@ return [
     'description'  => 'Descripción',
     'attributes'   => 'Atributos / valor(es) actual(es) o nuevo(s)',
     'old'          => 'Valor(es) anterior(es)',
-    'subject'      => "Asunto",
-    'logged_at'    => "Registrado el",
-    'has_subject'  => "Tiene objeto sometido",
+    'subject'      => 'Asunto',
+    'logged_at'    => 'Registrado el',
+    'has_subject'  => 'Tiene objeto sometido',
     'label'        => 'Actividad',
     'plural_label' => 'Registros de actividad'
 ];
