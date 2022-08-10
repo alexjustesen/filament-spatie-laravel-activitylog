@@ -3,13 +3,14 @@
 namespace AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers;
 
 use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
+use Filament\Facades\Filament;
 use Filament\Resources\Form;
-use Filament\Resources\RelationManagers\HasManyRelationManager;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Model;
 
-class ActivitiesRelationManager extends HasManyRelationManager
+class ActivitiesRelationManager extends RelationManager
 {
     protected static string $relationship = 'activities';
 
@@ -17,20 +18,12 @@ class ActivitiesRelationManager extends HasManyRelationManager
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                //
-            ]);
+        return ActivityResource::form($form);
     }
 
     public static function table(Table $table): Table
     {
-        return ActivityResource::table($table)
-            ->bulkActions([])
-            ->pushActions([
-                Tables\Actions\LinkAction::make('View')
-                    ->url(fn ($record) => ActivityResource::getUrl('view', ['record' => $record]), shouldOpenInNewTab: true),
-            ]);
+        return ActivityResource::table($table);
     }
 
     protected function canCreate(): bool
@@ -40,7 +33,7 @@ class ActivitiesRelationManager extends HasManyRelationManager
 
     protected function canEdit(Model $record): bool
     {
-        return false;
+        return true;
     }
 
     protected function canDelete(Model $record): bool
