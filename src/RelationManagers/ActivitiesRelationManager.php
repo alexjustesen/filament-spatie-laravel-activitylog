@@ -33,7 +33,7 @@ class ActivitiesRelationManager extends RelationManager
 
     protected function canEdit(Model $record): bool
     {
-        return true;
+        return false;
     }
 
     protected function canDelete(Model $record): bool
