@@ -22,7 +22,7 @@ class FilamentSpatieLaravelActivitylogServiceProvider extends PluginServiceProvi
     protected function getResources(): array
     {
         return [
-            ActivityResource::class,
+            config('filament-spatie-laravel-activitylog.resource.filament-resource') ?? ActivityResource::class,
         ];
     }
 
