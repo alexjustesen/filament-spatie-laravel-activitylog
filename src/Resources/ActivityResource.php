@@ -112,6 +112,10 @@ class ActivityResource extends Resource
                             return;
                         }
 
+                        if (! $resource::hasPage('edit')) {
+                            return;
+                        }
+
                         return $resource::getUrl('edit', ['record' => $record->subject]) ?? null;
                     }, shouldOpenInNewTab: true),
                 Tables\Columns\TextColumn::make('created_at')
