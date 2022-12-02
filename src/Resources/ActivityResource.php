@@ -31,7 +31,7 @@ class ActivityResource extends Resource
     {
         return __('filament-spatie-activitylog::activity.plural_label');
     }
-    
+
     public static function form(Form $form): Form
     {
         return $form
@@ -89,7 +89,11 @@ class ActivityResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('subject.name')
                     ->label(__('filament-spatie-activitylog::activity.subject'))
-                    ->hidden(fn (Component $livewire) => $livewire instanceof ActivitiesRelationManager)
+                    ->hidden(function (Component $livewire) {
+                        return method_exists($livewire, 'hideSubjectColumn')
+                            ? call_user_func([$livewire, 'hideSubjectColumn'])
+                            : $livewire instanceof ActivitiesRelationManager;
+                    })
                     ->getStateUsing(function (Activity $record) {
                         if (! $record->subject || ! $record->subject instanceof IsActivitySubject) {
                             return new HtmlString('&mdash;');
