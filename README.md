@@ -57,6 +57,17 @@ You can customise the navigation group for the `ActivityResource` by publishing 
 
 If you have a model that uses the `Spatie\Activitylog\Traits\LogsActivity` trait, you can add the `AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager` relationship manager to your Filament resource to display all of the activity logs that are performed on your model.
 
+### Show the `subject` column on custom relation managers
+
+When using the relationship manager the `subject` column isn't shown because the subject is the parent record. There are some cases (like when aggregating activities from child records) where the subject might be another record, and you want to show this column. In those cases you can add the next code to your relation manager:
+
+```php
+public function hideSubjectColumn(): bool
+{
+    return false;
+}
+```
+
 ## Testing
 
 ```bash
