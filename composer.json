@@ -51,6 +51,10 @@
         "test-coverage": "vendor/bin/pest coverage"
     },
     "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        },
         "sort-packages": true
     },
     "extra": {

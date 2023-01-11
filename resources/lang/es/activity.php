@@ -10,6 +10,8 @@ return [
     'old'          => 'Valor(es) anterior(es)',
     'subject'      => 'Asunto',
     'logged_at'    => 'Registrado el',
+    'log'          => 'Log',
+    'plural_log'   => 'Logs',
     'has_subject'  => 'Tiene objeto sometido',
     'label'        => 'Actividad',
     'plural_label' => 'Registros de actividad'

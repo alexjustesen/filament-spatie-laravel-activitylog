@@ -2,18 +2,14 @@
 
 namespace AlexJustesen\FilamentSpatieLaravelActivitylog\Resources;
 
-use AlexJustesen\FilamentSpatieLaravelActivitylog\Contracts\IsActivitySubject;
-use AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager;
-use AlexJustesen\FilamentSpatieLaravelActivitylog\ResourceFinder;
 use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource\Pages;
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\HtmlString;
-use Livewire\Component;
 use Spatie\Activitylog\Models\Activity;
 
 class ActivityResource extends Resource
@@ -40,25 +36,25 @@ class ActivityResource extends Resource
                     ->label(__('filament-spatie-activitylog::activity.causer_type'))
                     ->columnSpan([
                         'default' => 2,
-                        'sm' => 1
+                        'sm' => 1,
                     ]),
                 Forms\Components\TextInput::make('causer_id')
                     ->label(__('filament-spatie-activitylog::activity.causer_id'))
                     ->columnSpan([
                         'default' => 2,
-                        'sm' => 1
+                        'sm' => 1,
                     ]),
                 Forms\Components\TextInput::make('subject_type')
                     ->label(__('filament-spatie-activitylog::activity.subject_type'))
                     ->columnSpan([
                         'default' => 2,
-                        'sm' => 1
+                        'sm' => 1,
                     ]),
                 Forms\Components\TextInput::make('subject_id')
                     ->label(__('filament-spatie-activitylog::activity.subject_id'))
                     ->columnSpan([
                         'default' => 2,
-                        'sm' => 1
+                        'sm' => 1,
                     ]),
                 Forms\Components\TextInput::make('description')
                     ->label(__('filament-spatie-activitylog::activity.description'))->columnSpan(2),
@@ -66,13 +62,13 @@ class ActivityResource extends Resource
                     ->label(__('filament-spatie-activitylog::activity.attributes'))
                     ->columnSpan([
                         'default' => 2,
-                        'sm' => 1
+                        'sm' => 1,
                     ]),
                 Forms\Components\KeyValue::make('properties.old')
                     ->label(__('filament-spatie-activitylog::activity.old'))
                     ->columnSpan([
                         'default' => 2,
-                        'sm' => 1
+                        'sm' => 1,
                     ]),
             ]);
     }
@@ -84,55 +80,60 @@ class ActivityResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                     ->label('ID')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('subject_type')
+                    ->label(__('filament-spatie-activitylog::activity.subject'))
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('description')
                     ->label(__('filament-spatie-activitylog::activity.description'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('subject.name')
-                    ->label(__('filament-spatie-activitylog::activity.subject'))
-                    ->hidden(function (Component $livewire) {
-                        return method_exists($livewire, 'hideSubjectColumn')
-                            ? call_user_func([$livewire, 'hideSubjectColumn'])
-                            : $livewire instanceof ActivitiesRelationManager;
-                    })
-                    ->getStateUsing(function (Activity $record) {
-                        if (! $record->subject || ! $record->subject instanceof IsActivitySubject) {
-                            return new HtmlString('&mdash;');
-                        }
-
-                        /** @var \AlexJustesen\FilamentSpatieLaravelActivitylog\Contracts\IsActivitySubject */
-                        $subject = $record->subject;
-
-                        return $subject->getActivitySubjectDescription($record);
-                    })
-                    ->url(function (Activity $record) {
-                        if (! $record->subject || ! $record->subject instanceof IsActivitySubject) {
-                            return;
-                        }
-
-                        /** @var class-string<\Filament\Resources\Resource> */
-                        $resource = ResourceFinder::find($record->subject::class);
-
-                        if (! $resource) {
-                            return;
-                        }
-
-                        if (! $resource::hasPage('edit')) {
-                            return;
-                        }
-
-                        return $resource::getUrl('edit', ['record' => $record->subject]) ?? null;
-                    }, shouldOpenInNewTab: true),
+                Tables\Columns\TextColumn::make('log_name')
+                    ->label(__('filament-spatie-activitylog::activity.log')),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('filament-spatie-activitylog::activity.logged_at'))
-                    ->dateTime()
-                    ->sortable(),
+                    ->dateTime(),
             ])
             ->filters([
-                Tables\Filters\Filter::make('has_subject') ->label(__('filament-spatie-activitylog::activity.has_subject'))
-                    ->query(fn (Builder $query) => $query->has('subject')),
+                Tables\Filters\SelectFilter::make('event')
+                    ->multiple()
+                    ->options([
+                        'created' => 'Created',
+                        'updated' => 'Updated',
+                        'deleted' => 'Deleted',
+                    ]),
+                Tables\Filters\Filter::make('created_at')
+                    ->form([
+                        Forms\Components\DatePicker::make('logged_from')
+                            ->label('Logged from'),
+                        Forms\Components\DatePicker::make('logged_until')
+                            ->label('Logged until'),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['logged_from'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '>=', $date),
+                            )
+                            ->when(
+                                $data['logged_until'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '<=', $date),
+                            );
+                    })
+                    ->indicateUsing(function (array $data): array {
+                        $indicators = [];
+
+                        if ($data['from'] ?? null) {
+                            $indicators['from'] = 'Created from ' . Carbon::parse($data['from'])->toFormattedDateString();
+                        }
+
+                        if ($data['until'] ?? null) {
+                            $indicators['until'] = 'Created until ' . Carbon::parse($data['until'])->toFormattedDateString();
+                        }
+
+                        return $indicators;
+                    }),
             ])
             ->bulkActions([])
-            ->defaultSort('created_at', 'DESC');
+            ->defaultSort('id', 'DESC');
     }
 
     protected static function getNavigationGroup(): ?string

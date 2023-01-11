@@ -8,9 +8,11 @@ return [
     'description'  => 'Description',
     'attributes'   => 'Attributes',
     'old'          => 'Old',
-    'subject'      => "Subject",
-    'logged_at'    => "Logged at",
-    'has_subject'  => "Has Subject",
+    'subject'      => 'Subject',
+    'logged_at'    => 'Logged at',
+    'log'          => 'Log',
+    'plural_log'   => 'Logs',
+    'has_subject'  => 'Has Subject',
     'label'        => 'Activity',
-    'plural_label' => 'Activity'
+    'plural_label' => 'Activity',
 ];
