@@ -36,25 +36,25 @@ class ActivityResource extends Resource
                     ->label(__('filament-spatie-activitylog::activity.causer_type'))
                     ->columnSpan([
                         'default' => 2,
-                        'sm' => 1
+                        'sm' => 1,
                     ]),
                 Forms\Components\TextInput::make('causer_id')
                     ->label(__('filament-spatie-activitylog::activity.causer_id'))
                     ->columnSpan([
                         'default' => 2,
-                        'sm' => 1
+                        'sm' => 1,
                     ]),
                 Forms\Components\TextInput::make('subject_type')
                     ->label(__('filament-spatie-activitylog::activity.subject_type'))
                     ->columnSpan([
                         'default' => 2,
-                        'sm' => 1
+                        'sm' => 1,
                     ]),
                 Forms\Components\TextInput::make('subject_id')
                     ->label(__('filament-spatie-activitylog::activity.subject_id'))
                     ->columnSpan([
                         'default' => 2,
-                        'sm' => 1
+                        'sm' => 1,
                     ]),
                 Forms\Components\TextInput::make('description')
                     ->label(__('filament-spatie-activitylog::activity.description'))->columnSpan(2),
@@ -62,13 +62,13 @@ class ActivityResource extends Resource
                     ->label(__('filament-spatie-activitylog::activity.attributes'))
                     ->columnSpan([
                         'default' => 2,
-                        'sm' => 1
+                        'sm' => 1,
                     ]),
                 Forms\Components\KeyValue::make('properties.old')
                     ->label(__('filament-spatie-activitylog::activity.old'))
                     ->columnSpan([
                         'default' => 2,
-                        'sm' => 1
+                        'sm' => 1,
                     ]),
             ]);
     }
