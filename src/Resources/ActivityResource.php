@@ -121,12 +121,12 @@ class ActivityResource extends Resource
                     ->indicateUsing(function (array $data): array {
                         $indicators = [];
 
-                        if ($data['from'] ?? null) {
-                            $indicators['from'] = 'Created from ' . Carbon::parse($data['from'])->toFormattedDateString();
+                        if ($data['logged_from'] ?? null) {
+                            $indicators['logged_from'] = 'Created from ' . Carbon::parse($data['logged_from'])->toFormattedDateString();
                         }
 
-                        if ($data['until'] ?? null) {
-                            $indicators['until'] = 'Created until ' . Carbon::parse($data['until'])->toFormattedDateString();
+                        if ($data['logged_until'] ?? null) {
+                            $indicators['logged_until'] = 'Created until ' . Carbon::parse($data['logged_until'])->toFormattedDateString();
                         }
 
                         return $indicators;
