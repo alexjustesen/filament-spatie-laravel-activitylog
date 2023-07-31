@@ -2,34 +2,24 @@
 
 namespace AlexJustesen\FilamentSpatieLaravelActivitylog;
 
-use AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager;
-use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource;
-use Filament\PluginServiceProvider;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
+use AlexJustesen\FilamentSpatieLaravelActivitylog\RelationManagers\ActivitiesRelationManager;
 
-class FilamentSpatieLaravelActivitylogServiceProvider extends PluginServiceProvider
+class FilamentSpatieLaravelActivitylogServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-spatie-activitylog';
 
     public function configurePackage(Package $package): void
     {
-        parent::configurePackage($package);
-
-        $package->hasConfigFile('filament-spatie-laravel-activitylog');
-    }
-
-    protected function getResources(): array
-    {
-        return [
-            config('filament-spatie-laravel-activitylog.resource.filament-resource') ?? ActivityResource::class,
-        ];
+        $package->name(self::$name)
+            ->hasConfigFile('filament-spatie-laravel-activitylog')
+            ->hasTranslations();
     }
 
     public function packageBooted(): void
     {
-        parent::packageBooted();
-
-        Livewire::component(ActivitiesRelationManager::getName(), ActivitiesRelationManager::class);
+        Livewire::component(ActivitiesRelationManager::class, ActivitiesRelationManager::class);
     }
 }
