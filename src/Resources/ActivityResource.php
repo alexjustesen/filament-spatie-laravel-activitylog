@@ -5,9 +5,7 @@ namespace AlexJustesen\FilamentSpatieLaravelActivitylog\Resources;
 use AlexJustesen\FilamentSpatieLaravelActivitylog\Resources\ActivityResource\Pages;
 use Carbon\Carbon;
 use Filament\Forms;
-use Filament\Resources\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\Activitylog\Models\Activity;
@@ -16,7 +14,7 @@ class ActivityResource extends Resource
 {
     protected static ?string $model = Activity::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-table';
+    protected static ?string $navigationIcon = 'heroicon-o-table-cells';
 
     public static function getLabel(): string
     {
@@ -28,7 +26,7 @@ class ActivityResource extends Resource
         return __('filament-spatie-activitylog::activity.plural_label');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Forms\Form $form): Forms\Form
     {
         return $form
             ->schema([
@@ -73,7 +71,7 @@ class ActivityResource extends Resource
             ]);
     }
 
-    public static function table(Table $table): Table
+    public static function table(Tables\Table $table): Tables\Table
     {
         return $table
             ->columns([
@@ -136,12 +134,12 @@ class ActivityResource extends Resource
             ->defaultSort('id', 'DESC');
     }
 
-    protected static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): ?string
     {
         return config('filament-spatie-laravel-activitylog.resource.group') ?? parent::getNavigationGroup();
     }
 
-    protected static function getNavigationSort(): ?int
+    public static function getNavigationSort(): ?int
     {
         return config('filament-spatie-laravel-activitylog.resource.sort') ?? parent::getNavigationSort();
     }

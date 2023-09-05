@@ -3,8 +3,11 @@
 namespace AlexJustesen\FilamentSpatieLaravelActivitylog\Tests;
 
 use AlexJustesen\FilamentSpatieLaravelActivitylog\FilamentSpatieLaravelActivitylogServiceProvider;
+use Filament\FilamentServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Spatie\Activitylog\ActivitylogServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -20,6 +23,9 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
+            LivewireServiceProvider::class,
+            FilamentServiceProvider::class,
+            ActivitylogServiceProvider::class,
             FilamentSpatieLaravelActivitylogServiceProvider::class,
         ];
     }
