@@ -9,10 +9,17 @@ This package provides a Filament resource that shows you all of the activity log
 
 ## Installation
 
+> [!WARNING]
+> Version ^0.7 supports Filament v3.
+
 You can install the package via composer:
 
 ```bash
-composer require alexjustesen/filament-spatie-laravel-activitylog
+// For Filament v3
+composer require alexjustesen/filament-spatie-laravel-activitylog:^0.7
+
+// For Filament v2
+composer require alexjustesen/filament-spatie-laravel-activitylog:^0.6
 ```
 
 You can publish the config file with:
